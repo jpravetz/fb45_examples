@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
+  <includeClasses>
+    <classEntry path="com.cayo.spicefactory.logging.SOS3Appender"/>
+    <classEntry path="com.cayo.spicefactory.logging.FileAppender"/>
+    <classEntry path="com.cayo.spicefactory.logging.Logging"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>

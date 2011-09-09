@@ -1,0 +1,10 @@
+<Objects
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns="http://www.spicefactory.org/parsley" 
+	xmlns:module4="test.module4.*"
+	>
+	<fx:Declarations>
+		<module4:Module4PanelPM />	
+		<module4:PrefsModule4Persist name="Module4Persist" />
+	</fx:Declarations>
+</Objects>
