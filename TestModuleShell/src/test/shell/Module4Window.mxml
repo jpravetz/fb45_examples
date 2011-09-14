@@ -12,14 +12,33 @@
 	<fx:Script>
 		<![CDATA[
 			import mx.events.ModuleEvent;
-			private function init():void {
+			import mx.modules.IModuleInfo;
+			
+			import org.spicefactory.lib.logging.LogContext;
+			import org.spicefactory.lib.logging.Logger;
+			
+			private static const MODULE_URL:String = "test/module4/Module4Module.swf";
+			
+			private static const _log:Logger = LogContext.getLogger( Module4Window );
+			
+			public var info:IModuleInfo;
+			
+			private function init():void 
+			{
 				currentState = "loading";
-				module4Module.addEventListener(ModuleEvent.READY,onModuleReady);
-				module4Module.loadModule("test/module4/Module4Module.swf");
+				
+				_log.debug( "init; adding event listener; loading module {0}", MODULE_URL );
+				var classInfo:XML = describeType( module4Loader.moduleFactory );
+				_log.debug( "ModuleLoader.moduleFactory class name = {0}", classInfo.@name.toString() );
+				
+				module4Loader.addEventListener(ModuleEvent.READY,onModuleReady);
+				module4Loader.loadModule( MODULE_URL );
 			}
 
-			private function onModuleReady(event:ModuleEvent):void {
-				module4Module.removeEventListener(ModuleEvent.READY,onModuleReady);
+			private function onModuleReady(event:ModuleEvent):void 
+			{
+				_log.debug( "Module load complete" );
+				module4Loader.removeEventListener(ModuleEvent.READY,onModuleReady);
 				currentState = "loaded";
 			}
 		]]>
@@ -36,6 +55,6 @@
 		</s:HGroup>
 	</s:VGroup>
 	
-	<s:ModuleLoader id="module4Module" width="100%" height="100%" />
+	<s:ModuleLoader id="module4Loader" width="100%" height="100%" />
 	
 </s:Window>

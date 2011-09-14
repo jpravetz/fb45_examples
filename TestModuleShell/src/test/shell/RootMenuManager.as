@@ -1,8 +1,5 @@
 package com.cayo.canmore.shell.presentation
 {
-	import com.cayo.canmore.events.ViewChangeEvent;
-	import com.cayo.canmore.prefs.domain.WorkspacePrefs;
-	
 	import flash.desktop.NativeApplication;
 	import flash.display.NativeMenu;
 	import flash.display.NativeMenuItem;
@@ -10,11 +7,12 @@ package com.cayo.canmore.shell.presentation
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
 	import flash.events.IEventDispatcher;
-	import flash.filesystem.File;
 	
 	import mx.core.UIComponent;
 	
 	import org.spicefactory.parsley.core.context.Context;
+	
+	import test.shell.ViewChangeEvent;
 	
 	/**
 	 * 
@@ -30,7 +28,6 @@ package com.cayo.canmore.shell.presentation
 		private var _parent:UIComponent;
 		
 		[Inject] public var context:Context;
-		[Inject] public var prefs:WorkspacePrefs;
 		
 		public function RootMenuManager(target:IEventDispatcher=null) {
 			super(target);
@@ -109,9 +106,9 @@ package com.cayo.canmore.shell.presentation
 		 * Dispatches an event that causes the prefs dialog to pop up.
 		 */
 		private function handlePrefsClick(event:Event):void {
-			var window:PrefsWindow = new PrefsWindow();
-			context.viewManager.addViewRoot(window);
-			window.open();
+//			var window:PrefsWindow = new PrefsWindow();
+//			context.viewManager.addViewRoot(window);
+//			window.open();
 		}
 		
 		private function createFileMenu():NativeMenu {

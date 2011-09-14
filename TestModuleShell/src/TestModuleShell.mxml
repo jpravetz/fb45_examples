@@ -31,6 +31,8 @@
 		<![CDATA[
 			import com.cayo.spicefactory.logging.Logging;
 			
+			import org.spicefactory.lib.logging.LogContext;
+			import org.spicefactory.lib.logging.Logger;
 			import org.spicefactory.parsley.core.context.Context;
 			import org.spicefactory.parsley.flex.FlexContextBuilder;
 			
@@ -38,12 +40,14 @@
 			import test.shell.ViewChangeEvent;
 			
 			private static const DEFAULT_LOGGING:String = Logging.SOS;
+			private static var _log:Logger;
+
 
 			[Inject] public var context:Context;
 			
 			private function onPreInit() : void 
 			{
-				Logging.addLogAppender( DEFAULT_LOGGING, true );
+				Logging.addLogAppender( DEFAULT_LOGGING, false );
 			}
 			
 			private function onInit() : void 
@@ -52,6 +56,7 @@
 			
 			protected function onCreationComplete():void
 			{
+				_log = LogContext.getLogger( TestModuleShell );
 // Only testing module4 for the moment
 //				module1Loader.loadModule( "test/module1/Module1.swf" );
 //				module2Loader.loadModule( "assets/modules/Module2.swf" );
@@ -59,6 +64,7 @@
 			
 			private function onModule4Button():void 
 			{
+				_log.debug( "---- Pressed button to load Module4 ----" );
 				var window:Module4Window = new Module4Window();
 				context.viewManager.addViewRoot(window);
 				window.open();

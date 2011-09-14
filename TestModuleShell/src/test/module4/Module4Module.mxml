@@ -4,10 +4,21 @@
 		  xmlns:mx="library://ns.adobe.com/flex/mx" 
 		  xmlns:module4="test.module4.*" 
 		  xmlns:parsley="http://www.spicefactory.org/parsley"
+		  preinitialize="onPreInit()"
 		  >
 	<fx:Declarations>
 		<parsley:ContextBuilder config="{Module4Context}" />
 	</fx:Declarations>
+	
+	<fx:Script>
+		<![CDATA[
+			private function onPreInit() : void 
+			{
+				var x:Module = this;
+				var y:Object = x.moduleFactory;
+			}
+		]]>
+	</fx:Script>
 	
 	<module4:Module4Panel width="100%"/>
 

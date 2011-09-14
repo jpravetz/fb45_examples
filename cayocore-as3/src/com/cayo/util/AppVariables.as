@@ -39,7 +39,7 @@ package com.cayo.util
 			var appXml:XML = NativeApplication.nativeApplication.applicationDescriptor;
 			var ns:Namespace = appXml.namespace();
 			this.appId = appXml.ns::id[0];
-			this.appVersion = appXml.ns::version[0];
+			this.appVersion = appXml.ns::versionNumber[0];
 			this.playerType = Capabilities.playerType;
 			this.runtimeVersion = NativeApplication.nativeApplication.runtimeVersion;
 			this.os = Capabilities.os;
