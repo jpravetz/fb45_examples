@@ -21,8 +21,6 @@ package com.cayo.spicefactory.logging
 	import flash.filesystem.FileStream;
 	import flash.utils.getTimer;
 	
-	import mx.logging.LogEvent;
-	
 	import org.spicefactory.lib.flash.logging.FlashLogger;
 	import org.spicefactory.lib.flash.logging.LogEvent;
 	import org.spicefactory.lib.flash.logging.LogLevel;

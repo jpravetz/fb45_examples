@@ -4,6 +4,8 @@
     <classEntry path="com.cayo.spicefactory.logging.SOS3Appender"/>
     <classEntry path="com.cayo.spicefactory.logging.FileAppender"/>
     <classEntry path="com.cayo.spicefactory.logging.Logging"/>
+    <classEntry path="com.cayo.util.AppVariables"/>
+    <classEntry path="com.cayo.util.DateUtil2"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

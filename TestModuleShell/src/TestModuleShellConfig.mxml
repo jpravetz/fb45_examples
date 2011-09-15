@@ -2,10 +2,9 @@
 	xmlns:fx="http://ns.adobe.com/mxml/2009"
 	xmlns="http://www.spicefactory.org/parsley" 
 	xmlns:shell="test.shell.*" 
-	xmlns:common="test.common.*"
+	xmlns:common="test.common.*" xmlns:local="*"
 	>
 	<fx:Declarations>
-		
 		
 		<shell:ShellPanelPM />
 		

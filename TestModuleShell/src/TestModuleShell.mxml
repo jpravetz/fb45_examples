@@ -9,11 +9,12 @@
 					   preinitialize="onPreInit()"
 					   initialize="onInit()"
 					   creationComplete="onCreationComplete()"
-					   addedToStage="dispatchEvent(new Event('configureView', true));"
 					   viewSourceURL="srcview/index.html"
 					   >
 	<fx:Declarations>
-		<parsley:ContextBuilder config="TestModuleShellContext" />
+		<parsley:ContextBuilder config="TestModuleShellConfig"  />
+		<!-- Require so that context can be injected into this class -->
+		<parsley:Configure />
 	</fx:Declarations>
 	
 	<s:layout>
@@ -31,17 +32,17 @@
 		<![CDATA[
 			import com.cayo.spicefactory.logging.Logging;
 			
+			import mx.events.ModuleEvent;
+			
 			import org.spicefactory.lib.logging.LogContext;
 			import org.spicefactory.lib.logging.Logger;
 			import org.spicefactory.parsley.core.context.Context;
-			import org.spicefactory.parsley.flex.FlexContextBuilder;
 			
 			import test.shell.Module4Window;
 			import test.shell.ViewChangeEvent;
 			
 			private static const DEFAULT_LOGGING:String = Logging.SOS;
 			private static var _log:Logger;
-
 
 			[Inject] public var context:Context;
 			
@@ -57,9 +58,24 @@
 			protected function onCreationComplete():void
 			{
 				_log = LogContext.getLogger( TestModuleShell );
-// Only testing module4 for the moment
 //				module1Loader.loadModule( "test/module1/Module1.swf" );
-//				module2Loader.loadModule( "assets/modules/Module2.swf" );
+				module2Loader.addEventListener(ModuleEvent.READY,onModuleReady);
+				module2Loader.addEventListener(ModuleEvent.ERROR,onModuleError);
+				module2Loader.loadModule( "assets/modules/test/module3/Module3.swf" );
+			}
+			
+			private function onModuleReady(event:ModuleEvent):void 
+			{
+				_log.debug( "Module3 load complete" );
+				module2Loader.removeEventListener(ModuleEvent.READY,onModuleReady);
+				module2Loader.removeEventListener(ModuleEvent.ERROR,onModuleError);
+			}
+			
+			private function onModuleError(event:ModuleEvent):void 
+			{
+				_log.debug( "Module3 error: {0}", event.errorText );
+				module2Loader.removeEventListener(ModuleEvent.READY,onModuleReady);
+				module2Loader.removeEventListener(ModuleEvent.ERROR,onModuleError);
 			}
 			
 			private function onModule4Button():void 
@@ -80,6 +96,7 @@
 	</s:HGroup>
 	
 	<s:HGroup width="100%" >
+		<s:VGroup height="100" width="10" />
 		<s:ModuleLoader id="module1Loader" width="50%" />
 		<s:ModuleLoader id="module2Loader" width="50%" />
 	</s:HGroup>

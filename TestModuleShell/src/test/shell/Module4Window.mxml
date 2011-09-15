@@ -3,6 +3,7 @@
 		  xmlns:s="library://ns.adobe.com/flex/spark" 
 		  width="300" height="300"
 		  creationComplete="init()" 
+		  title="Module4"
 		  >
 	
 	<fx:Declarations>
@@ -37,7 +38,7 @@
 
 			private function onModuleReady(event:ModuleEvent):void 
 			{
-				_log.debug( "Module load complete" );
+				_log.debug( "Module4 load complete" );
 				module4Loader.removeEventListener(ModuleEvent.READY,onModuleReady);
 				currentState = "loaded";
 			}
