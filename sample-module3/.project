@@ -25,7 +25,7 @@
 		<link>
 			<name>bin-debug</name>
 			<type>2</type>
-			<locationURI>DOCUMENTS/test-shell/src/assets/modules</locationURI>
+			<locationURI>DOCUMENTS/sample-modules-shell/src/assets/modules</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>
