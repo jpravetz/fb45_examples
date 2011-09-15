@@ -37,6 +37,8 @@
   </applications>
   <modules>
     <module application="src/TestModuleShell.mxml" destPath="test/module4/Module4Module.swf" optimize="true" sourcePath="src/test/module4/Module4Module.mxml"/>
+    <module application="src/TestModuleShell.mxml" destPath="test/inbox/InboxModule.swf" optimize="true" sourcePath="src/test/inbox/InboxModule.mxml"/>
+    <module application="src/TestModuleShell.mxml" destPath="test/provider/ProviderModule.swf" optimize="true" sourcePath="src/test/provider/ProviderModule.mxml"/>
   </modules>
   <buildCSSFiles/>
   <flashCatalyst validateFlashCatalystCompatibility="false"/>

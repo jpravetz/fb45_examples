@@ -1,0 +1,10 @@
+<Objects
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns="http://www.spicefactory.org/parsley" 
+	xmlns:inbox="test.inbox.*"
+	>
+	<fx:Declarations>
+		<inbox:InboxContainerPM />	
+	</fx:Declarations>
+</Objects>
+

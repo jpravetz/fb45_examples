@@ -1,18 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml"
-		 creationComplete="init()"
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009"
+		 xmlns:s="library://ns.adobe.com/flex/spark"
+		 creationComplete="init()" 
 		 >
 	
-	<mx:Script>
+	<fx:Script>
 		<![CDATA[
 			import mx.events.ModuleEvent;
 			
-			private function init():void {
-				providerModule.loadModule("test/provider/ProviderModule.swf");
+			private function init():void 
+			{
+				currentState = "loading";
+				providerModuleLoader.addEventListener( ModuleEvent.READY, onModuleReady );
+				providerModuleLoader.loadModule("test/provider/ProviderModule.swf");
+			}
+			private function onModuleReady( event:ModuleEvent ) : void 
+			{
+				currentState = "loaded";
 			}
 		]]>
-	</mx:Script>
+	</fx:Script>
 	
-	<mx:ModuleLoader id="providerModule" width="100%" height="100%"  />
+	<s:states>
+		<s:State name="loading" />
+		<s:State name="loaded" />
+	</s:states>
+
+	<s:VGroup width="100%" height="100%" horizontalAlign="center" includeIn="loading">
+		<s:HGroup height="100%" verticalAlign="middle" >
+			<s:Label text="Loading" color="0xCCCCCC" />
+		</s:HGroup>
+	</s:VGroup>
 	
-</mx:VBox>
+	<s:ModuleLoader id="providerModuleLoader" width="100%" height="100%"  />
+	
+</s:Group>
