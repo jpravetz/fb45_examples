@@ -24,9 +24,9 @@
         </excludedEntries>
       </libraryPathEntry>
       <libraryPathEntry kind="1" linkType="1" path="libs"/>
-      <libraryPathEntry kind="3" linkType="1" path="${DOCUMENTS}/TestModuleCommon/bin/TestModuleCommon.swc" useDefaultLinkType="false"/>
       <libraryPathEntry kind="3" linkType="1" path="${DOCUMENTS}/spicelib-common/bin/spicelib-common.swc" useDefaultLinkType="false"/>
       <libraryPathEntry kind="1" linkType="1" path="${DOCUMENTS}/libs"/>
+      <libraryPathEntry kind="3" linkType="1" path="${DOCUMENTS}/test-common/bin/test-common.swc" useDefaultLinkType="false"/>
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>

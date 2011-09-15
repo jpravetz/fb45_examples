@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>TestModule3</name>
+	<name>test-module3</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -25,7 +25,7 @@
 		<link>
 			<name>bin-debug</name>
 			<type>2</type>
-			<locationURI>DOCUMENTS/TestModuleShell/src/assets/modules</locationURI>
+			<locationURI>DOCUMENTS/test-shell/src/assets/modules</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>
